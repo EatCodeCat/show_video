@@ -89,3 +89,24 @@ ul,li,dl,dt,dd,i { list-style: none;font-style: normal; margin: 0; padding: 0;}
 .myAppImgNewsBlock .myAppImgNewsUser .myAppImgNewsIco { float: left; position: relative; width: 40px; border-radius: 50%; overflow: hidden;}
 .myAppImgNewsBlock .myAppImgNewsUser .myAppImgNewsIco img { width: 100%;}
 .myAppImgNewsBlock .myAppImgNewsUser .myAppImgNewsName { height: 40px; float: left; font-size: 16px; line-height: 40px; padding-left: 10px; color: #19bab3; font-weight: bold;}
+.sv-search-box{
+    outline: none;
+    background-color: rgba(41, 44, 52, 0.78);
+    transform: translate(0,-50%);
+    top: 50%;
+}
+.sv-search-box i{
+    color: #fff;
+}
+.sv-search-box input{
+    background-color: rgba(41, 44, 52, 0.78);
+    color: #fff;
+    border: 1px solid #666;
+    border-radius: 3px;
+    outline: none;
+}
+
+.sv-search-box input:focus{ 
+     background-color: rgba(41, 44, 52);
+     color: #fff;
+}
