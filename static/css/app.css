@@ -5,12 +5,12 @@ ul,li,dl,dt,dd,i { list-style: none;font-style: normal; margin: 0; padding: 0;}
 .myAppHead { background: #292c34;}
 .myAppTab { background: #fff; margin: 0;}
 .myAppTab .am-tabs-nav a { background: #fff;}
-.myAppTab .am-tabs-nav>.am-active a {    color: #222;}
+/*.myAppTab .am-tabs-nav>.am-active a {    color: #222;}*/
 .myAppTab .am-tabs-nav { background: #d2cfd0;}
 .myAppTab .am-tabs-nav a {color: #71757b;}
 .myAppTab .am-tabs-nav li { height: 43px;}
 .myAppTab .am-tabs-nav>.am-active:after { border: none;}
-.myAppTab .am-tabs-nav>.am-active {     border-bottom: 4px solid #00c4cd;}
+/*.myAppTab .am-tabs-nav>.am-active {     border-bottom: 4px solid #00c4cd;}*/
 .am-tabs-bd .myAppTabPanel { padding: 0;} 
 .myAppSlider {}
 .myAppSlider .am-control-nav { bottom: 12px}
@@ -96,7 +96,7 @@ ul,li,dl,dt,dd,i { list-style: none;font-style: normal; margin: 0; padding: 0;}
     top: 50%;
 }
 .sv-search-box i{
-    color: #fff;
+    color: #bbb;
 }
 .sv-search-box input{
     background-color: rgba(41, 44, 52, 0.78);
@@ -108,5 +108,11 @@ ul,li,dl,dt,dd,i { list-style: none;font-style: normal; margin: 0; padding: 0;}
 
 .sv-search-box input:focus{ 
      background-color: rgba(41, 44, 52);
-     color: #fff;
+     color:rebeccapurple;
+}
+.bottom-nav{
+    position: fixed;
+    bottom: 0px;
+    box-shadow: -1px -1px 1px rgba(51, 51, 51, 0.18);
+    z-index: 9999
 }
