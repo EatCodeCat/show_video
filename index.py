@@ -31,7 +31,7 @@ def login():
 
 @app.route("/me")
 def me():
-    return render_template('login.html')
+    return render_template('me.html')
 
 @app.route("/video")
 def video():

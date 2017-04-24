@@ -587,3 +587,32 @@ i {
 .am-list-main{
  padding-bottom:1rem !important;
 }
+.avatar{
+    height: 70px;
+    line-height: 70px;
+    padding:0 1.5rem;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+.avatar img{
+    margin-right: 15px;
+}
+.user-zhxx li{
+    height: 50px;
+    padding: 0 0 0 1.5rem ;
+    line-height: 50px;
+     border-bottom: 1px solid #ddd;
+
+}
+.user-zhxx li i{
+    color: #666
+}
+.user-zhxx li div{
+    display: inline-block;
+    height: 100%;
+    margin-left: 10px;
+}
+.block{
+    background-color: #eee;
+    height: 10px;
+}
