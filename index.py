@@ -29,6 +29,10 @@ def index():
 def login():
     return render_template('login.html')
 
+@app.route("/regist")
+def regist():
+    return render_template('regist.html')
+
 @app.route("/me")
 def me():
     return render_template('me.html')
