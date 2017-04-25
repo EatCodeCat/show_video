@@ -538,81 +538,125 @@ i {
     -ms-flex: 1;
     flex: 1;
 }
-.video-title{
-    font-size: 16px;
-    color:#000;
-    line-height: 35px;
+
+.video-title {
+    font-size: 14px;
+    color: #000;
+    line-height: 23px;
     padding: 0 1rem
 }
-.video{
-    width:100%;
+
+.video {
+    width: 100%;
     height: 200px;
 }
-.video img{
+
+.video img {
     width: 100%;
     height: 100%;
 }
-.tag{
-    height: 45px;
-    line-height: 45px;
+
+.tag {
+    height: 36px;
+    line-height: 36px;
     padding: 0 1rem
 }
-.am-g .am-list-item-desced .video-title{
- padding: 0;
+
+.am-g .am-list-item-desced .video-title {
+    padding: 0;
 }
-.am-g .am-list-item-desced .tag{
- padding: 0;
+
+.am-g .am-list-item-desced .tag {
+    padding: 0;
 }
-.tag span{
-    border: 1px solid #ddd;
+
+.tag span {
+    border: 1px solid #666;
     border-radius: 2px;
     height: 23px;
-    padding:2px 4px;
+    padding: 2px 3px;
     margin-right: 1rem;
-    font-size: 14px
+    font-size: 12px
 }
-.video-li{
-    border-bottom: 1px solid #ddd 
+
+.video-li {
+    border-bottom: 1px solid #ddd
 }
-.video-list{
+
+.video-list {
     margin-bottom: 45px;
 }
-.am-list-news-default .am-list .am-list-item-desced{
-    padding-top:0;
-     padding-bottom:0;
+
+.am-list-news-default .am-list .am-list-item-desced {
+    padding-top: 0;
+    padding-bottom: 0;
 }
-.am-list{
+
+.am-list {
     margin-bottom: 45px;
 }
-.am-list-main{
- padding-bottom:1rem !important;
+
+.am-list-main {
+    padding-bottom: 1rem !important;
 }
-.avatar{
+
+.avatar {
     height: 70px;
     line-height: 70px;
-    padding:0 1.5rem;
+    padding: 0 1.5rem;
     border-bottom: 1px solid #ddd;
     font-size: 16px;
 }
-.avatar img{
+
+.avatar img {
     margin-right: 15px;
 }
-.user-zhxx li{
-    height: 50px;
-    padding: 0 0 0 1.5rem ;
-    line-height: 50px;
-     border-bottom: 1px solid #ddd;
 
+.user-zhxx li {
+    height: 50px;
+    padding: 0 0 0 1.5rem;
+    line-height: 50px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
 }
-.user-zhxx li i{
+
+.user-zhxx li i {
     color: #666
 }
-.user-zhxx li div{
+
+.user-zhxx li div {
     display: inline-block;
     height: 100%;
     margin-left: 10px;
 }
-.block{
+
+.block {
     background-color: #eee;
     height: 10px;
 }
+
+.login img {
+    margin-top: 10px;
+}
+
+.login {
+    height: 160px;
+    line-height: 40px;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    text-align: center;
+}
+
+.qq-wx-wb-user {
+    line-height: 22px;
+    margin-top: 2px;
+    display: flex
+}
+
+.qq-wx-wb-user span {
+    display: inline-block;
+    flex: 1
+}
+
+.right-padding {}
