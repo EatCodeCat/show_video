@@ -660,35 +660,64 @@ i {
     flex: 1;
 }
 
-.login-panel{
+.login-panel {
     text-align: center;
 }
-.login-item{
+
+.login-item {
     margin: 25px auto;
 }
-.login-item input{
+
+.login-item input {
     width: 80%;
-    margin: 0  auto;
+    margin: 0 auto;
     outline: none;
     border: 0;
     border-bottom: 1px solid #666;
     height: 35px;
 }
-.input:focus{ 
+
+.input:focus {
     border: 0 !important;
     outline: none !important;
     background-color: #eee;
 }
-input::-webkit-input-placeholder{
+
+input::-webkit-input-placeholder {
     text-align: center
 }
-input::-moz-placeholder{
+
+input::-moz-placeholder {
     text-align: center
 }
-.back-btn{
+
+.back-btn {
     color: #000;
     font-size: 16px;
     position: fixed;
     top: 10px;
     left: 10px;
+}
+
+.video-item {
+    position: relative;
+}
+
+.pet_video_info_tag {
+    position: absolute;
+    font-size: 12px;
+    bottom: 45px;
+    right: 5px;
+    padding: 0 10px;
+    display: inline-block;
+    text-align: center;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    line-height: 22px;
+    color: #fff;
+}
+
+.pet_video_info_tag i {
+    margin-right: 5px;
 }
