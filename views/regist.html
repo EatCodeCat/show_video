@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>登录</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/amazeui.min.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+
+<body>
+
+    <div step=1 class="login-panel">
+        <a class="back-btn am-icon-chevron-left " href="javascript:history.go(-1)"></a>
+        <h2 style="margin:15% 0">注册</h2>
+
+        <div class=login-item>
+            <input class=" am-radius" type="text" id=userName placeholder="登录账户" />
+        </div>
+        <div class=login-item>
+            <input class=" am-radius" id=password type="password" placeholder="密码" />
+        </div>
+        <div class=login-item>
+            <input class=" am-radius" id=re_password type="password" placeholder="确定密码" />
+        </div>
+        <div class=login-item>
+            <button type="button" id=nextstep class="am-btn am-btn-secondary">下一步</button>
+        </div>
+    </div>
+    <div step=2 class="login-panel" style="display:none">
+        <a class="back-btn am-icon-chevron-left " href="javascript:history.go(-1)"></a>
+        <h2 style="margin:15% 0">完善资料</h2>
+
+        <div class=login-item>
+            <input class=" am-radius" type="text" id='' placeholder="昵称" />
+        </div>
+        <div class=login-item>
+            <input class=" am-radius" type="text" placeholder="手机号码" />
+        </div>
+        <div class=login-item>
+            <input class=" am-radius" type="text" placeholder="email" />
+        </div>
+        <div class=login-item>
+            <div class="am-form-group">
+                <label class="am-radio-inline">
+                <input style="    margin-top: -5px;" type="radio"  value="1" name="docInlineRadio"> 男
+                </label>
+                <label class="am-radio-inline">
+        <input value="2" style="    margin-top: -5px;" type="radio" name="docInlineRadio"> 女
+      </label>
+
+            </div>
+        </div>
+        <div class=login-item>
+            <button type="button" id=submit class="am-btn am-btn-secondary">注 册</button>
+        </div>
+    </div>
+
+    <script src="/static/js/zepto.min.js"></script>
+    <script src="/static/js/layer_mobile/layer.js"></script>
+    <script>
+        var param = {
+            'uesrName': '',
+            'nickname': '',
+            'sex': 0,
+            'password': '',
+            'telphone': '',
+            'email': '',
+        }
+
+        window.onpopstate = function() {
+            if (history.state && history.state.step == 2) {
+                $('[step="1"]').hide();
+                $('[step="2"]').show();
+            } else {
+                $('[step="1"]').show();
+                $('[step="2"]').hide();
+            }
+        }
+
+        $('#userName').blur(function() {
+
+            param.userName = $('#userName').val()
+            if (!/\s*/.test(param.userName)) {
+                $.getJSON('/api/check_user_noexist/' + param.uesrName, function() {
+
+                })
+            }
+        })
+
+
+        $("#nextstep").click(function() {
+
+            param.userName = $('#userName').val()
+            param.password = $('#userName').val()
+            param.re_password = $('#userName').val()
+
+            if (/\s*/.test(param.userName)) {
+                layer.open({
+                    content: '用户名不能为空',
+                    skin: 'msg'
+                })
+                return
+            }
+
+
+            $('[step="1"]').hide();
+            $('[step="2"]').show();
+            history.pushState({
+                step: 2
+            }, '', 'next-step');
+
+        })
+        $('#submit').click(function() {
+            param.userName = $('#userName').val();
+
+        })
+    </script>
+</body>
+
+</html>

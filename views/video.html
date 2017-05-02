@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>视频、阅读</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="/static/css/amazeui.min.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+    <script src="http://at.alicdn.com/t/font_yhclfd97eqtwqaor.js"></script>
+</head>
+
+<body>
+    <div class="am-g">
+        <!-- 头部 -->
+        <%- include('components/Search.html') %>
+            <!-- 栏目切换 -->
+            <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
+
+                <div class="am-tabs-bd">
+                    <div class="myAppTabPanel am-tab-panel am-active">
+                        <div data-am-widget="list_news" class="am-list-news">
+
+                            <div class="am-list-news-bd">
+                                <ul class="video-list">
+                                    <!--缩略图在标题右边-->
+                                    <li class="video-li">
+                                        <%- include('components/Video.html') %>
+                                    </li>
+                                    <li class="video-li">
+                                        <%- include('components/Video.html') %>
+                                    </li>
+                                    <li class="video-li">
+                                        <%- include('components/Video.html') %>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%- include('components/BottomNav.html') %>
+            </div>
+    </div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/amazeui.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>
