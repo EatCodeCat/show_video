@@ -15,13 +15,13 @@
         <a class="back-btn am-icon-chevron-left " href="javascript:history.go(-1)"></a>
         <h2 style="margin:20% 0">登录</h2>
         <div class=login-item>
-            <input class=" am-radius" type="text" placeholder="帐号" />
+            <input class=" am-radius" id="userName" type="text" placeholder="帐号" />
         </div>
         <div class=login-item>
-            <input class=" am-radius" type="password" placeholder="密码" />
+            <input class=" am-radius" id="password" type="password" placeholder="密码" />
         </div>
         <div class=login-item>
-            <button type="button" class="am-btn am-btn-secondary ">登 录</button>
+            <button type="button" id="submit" class="am-btn am-btn-secondary ">登 录</button>
         </div>
         <div class="qq-wx-wb-user" style="margin:10% 0;">
             <span class="right-padding"><i class="am-icon-qq am-icon-sm"></i><div>QQ</div> </span>
@@ -32,9 +32,61 @@
         <a href="/regist" style="margin:10% 0 0 0;display:inline-block;font-size:12px">注册帐号</a>
     </div>
 
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/amazeui.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
     <script src="/static/js/app.js"></script>
+    <script src="/static/js/layer_mobile/layer.js"></script>
+    <script>
+        $('#submit').click(function() {
+            var param = {}
+
+            param.userName = $.trim($('#userName').val())
+            param.password = $.trim($('#password').val())
+            if (param.userName == '') {
+                layer.open({
+                    content: '用户名不能为空',
+                    skin: 'msg',
+                    time: 3
+                })
+                return
+            }
+            if (param.password == '') {
+                layer.open({
+                    content: '密码不能为空',
+                    skin: 'msg',
+                    time: 3
+                })
+                return
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/api/user/login',
+                data: JSON.stringify(param),
+                contentType: 'application/json',
+                success: function(res) {
+                    if (!res.code) {
+                        layer.open({
+                            content: '登录成功！',
+                            skin: 'msg',
+                            time: 3
+                        })
+                        setTimeout(function() {
+                            location.href = '/me';
+                        }, 1000)
+
+                    } else {
+                        layer.open({
+                            content: res.msg,
+                            skin: 'msg',
+                            time: 3
+                        })
+                    }
+                }
+            })
+        })
+    </script>
+
+
 </body>
 
 </html>

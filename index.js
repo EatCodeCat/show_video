@@ -1,7 +1,20 @@
 var express = require('express');
-var app = express();
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
+
 
 var apiRouter = require('./router/api')
+var rootRouter = require('./router/root')
+
+var app = express();
+
+app.use(bodyParser.json()); //body-parser 解析json格式数据
+app.use(bodyParser.urlencoded({ //此项必须在 bodyParser.json 下面,为参数编码
+    extended: true
+}));
+
+
+app.use(cookieParser())
 
 //静态文件
 app.use('/static', express.static(__dirname + '/static'));
@@ -9,44 +22,11 @@ app.use('/static', express.static(__dirname + '/static'));
 //api 接口
 app.use('/api', apiRouter);
 
+app.use(rootRouter);
+
 //ejs模板
 app.set('view engine', 'ejs')
 app.engine('html', require('ejs').renderFile);
-
-
-
-app.get('/', function(req, res) {
-    res.render('index.html')
-});
-
-
-app.get('/login', function(req, res) {
-    res.render('login.html')
-});
-
-app.route('/regist').get(function(req, res) {
-    res.render('regist.html')
-
-}).post(function(req, res) {
-    console.log(req.param)
-});
-
-app.get('/me', function(req, res) {
-    res.render('me.html')
-});
-
-app.get('/video', function(req, res) {
-    res.render('video.html')
-});
-
-app.get('/arctile', function(req, res) {
-    res.render('arctile.html')
-});
-
-app.get('/detail/:id', function(req, res) {
-    res.render('detail.html')
-});
-
 
 
 
