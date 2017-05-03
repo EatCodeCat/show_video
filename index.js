@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
+var session = require('express-session');
 
 
 var apiRouter = require('./router/api')
@@ -13,6 +14,12 @@ app.use(bodyParser.urlencoded({ //此项必须在 bodyParser.json 下面,为参�
     extended: true
 }));
 
+app.use(session({
+    secret: 'eat code cat',
+    resave: false,
+    saveUninitialized: true,
+
+}))
 
 app.use(cookieParser())
 

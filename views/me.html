@@ -66,13 +66,13 @@
 
                             </div>
                             <ul class="user-zhxx">
-                                <li><i class="am-icon-cog am-icon-sm"></i>
+                                <!--<li><i class="am-icon-cog am-icon-sm"></i>
                                     <div><span>设置</span></div>
-                                </li>
+                                </li>-->
                                 <li><i class="am-icon-send am-icon-sm"></i>
                                     <div><span>关于我们</span></div>
                                 </li>
-                                <li><i class="am-icon-sign-out am-icon-sm"></i>
+                                <li id="loginout"><i class="am-icon-sign-out am-icon-sm"></i>
                                     <div><span>退出登录</span></div>
                                 </li>
                             </ul>
@@ -82,23 +82,17 @@
         </div>
     </div>
 
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/amazeui.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
     <script src="/static/js/app.js"></script>
+    <script src="/static/js/js.cookie.js"></script>
 
     <script>
-        function getCookie(name) {
-            var strCookie = document.cookie;
-            var arrCookie = strCookie.split("; ");
-            for (var i = 0; i < arrCookie.length; i++) {
-                var arr = arrCookie[i].split("=");
-                if (arr[0] == name) return arr[1];
-            }
-            return "";
-        }
-        if (getCookie('userName')) {
-
-        }
+        $("#loginout").click(function() {
+            Cookies.remove('userName', {
+                path: ''
+            });
+            location.reload();
+        })
     </script>
 </body>
 

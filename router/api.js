@@ -44,6 +44,7 @@ apiRouter.post('/user/login', function(req, res) {
             if (data) {
                 res.cookie('userName', data.userName, { expires: new Date(Date.now() + 30 * 1000 * 60 * 24) });
                 res.cookie('nickname', data.nickname, { expires: new Date(Date.now() + 30 * 1000 * 60 * 24) });
+                req.session.user = data;
                 res.json({ code: 0 })
             } else {
                 res.json({ code: 1, msg: '账户或者密码错误' })
@@ -51,8 +52,6 @@ apiRouter.post('/user/login', function(req, res) {
         }
     })
 })
-
-
 
 apiRouter.post('/user/save', function(req, res) {
     var param = req.body;

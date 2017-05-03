@@ -601,8 +601,8 @@ i {
 }
 
 .avatar {
-    height: 75px;
-    line-height: 75px;
+    height: 80px;
+    line-height: 80px;
     padding: 0 1.5rem;
     border-bottom: 1px solid #ddd;
     font-size: 16px;
@@ -610,6 +610,10 @@ i {
 
 .avatar img {
     margin-right: 15px;
+}
+
+.nickname {
+    vertical-align: middle;
 }
 
 .user-zhxx li {
