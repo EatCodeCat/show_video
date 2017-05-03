@@ -2,11 +2,6 @@ var express = require('express');
 var rootRouter = express.Router();
 var userDao = require('../model/userModel');
 
-
-
-
-
-
 function getUserBySession(userName, req, cb) {
 
     if (!req.session.user) {
@@ -37,6 +32,8 @@ rootRouter.use(function(req, res, next) {
 
 
 rootRouter.get('/', function(req, res) {
+
+
     res.render('index.html')
 });
 
