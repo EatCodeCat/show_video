@@ -42,8 +42,8 @@ apiRouter.post('/user/login', function(req, res) {
             console.error(err);
         } else {
             if (data) {
-                res.cookie('userName', data.userName, { expires: new Date(Date.now() + 30 * 1000 * 60 * 24) });
-                res.cookie('nickname', data.nickname, { expires: new Date(Date.now() + 30 * 1000 * 60 * 24) });
+                res.cookie('userName', data.userName, { expires: new Date(Date.now() + 30 * 1000 * 60 * 60 * 24) });
+                res.cookie('nickname', data.nickname, { expires: new Date(Date.now() + 30 * 1000 * 60 * 60 * 24) });
                 req.session.user = data;
                 res.json({ code: 0 })
             } else {

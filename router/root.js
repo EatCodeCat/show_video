@@ -27,12 +27,13 @@ rootRouter.use(function(req, res, next) {
         getUserBySession(userName, req, function(data) {
             next();
         })
+    } else {
+        next();
     }
 })
 
 
 rootRouter.get('/', function(req, res) {
-
 
     res.render('index.html')
 });
