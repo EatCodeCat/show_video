@@ -21,6 +21,18 @@ $('[t_href]').click(function() {
         }
     })
     var page = 2
+
+    function fillData(data) {
+
+        var markup = '';
+        for (var i = 0; i < data.length; i++) {
+            var content = data[i];
+            markup += "<li class=\"am-g am-list-item-desced\"><div t_href=\"/detail/" + content._id + "\" class=\"am-list-item-thumb-right am-list-item-thumbed\"><div class=\" am-u-sm-8 am-list-main\">    <h3 class=\"am-list-item-hd\">        <a href=\"###\" class=\"\">            " + content.title + "        </a>    </h3></div><div class=\"am-u-sm-4 am-list-thumb\">    <a href=\"###\" class=\"\">    <img src=\"" + content.thumbnail[0] + "\" alt=\"" + content.title + "\" /></a></div>\n    </div></li>";
+        }
+        return markup
+
+
+    }
     new Scrollload({
         container: $('.am-list-news-bd')[0],
         content: $('.am-list')[0],
@@ -34,26 +46,8 @@ $('[t_href]').click(function() {
                     // contentDom其实就是你的scrollload-content类的dom
                     //$(sl.contentDom).append(data)
                     // 处理完业务逻辑后必须要调用unlock
-                    var markup = '';
-                    for (var i = 0; i < data.length; i++) {
-                        var content = data[i];
-                        markup += `<li class="am-g am-list-item-desced"><div t_href="/detail/${content._id }" class="am-list-item-thumb-right am-list-item-thumbed">
-        <div class=" am-u-sm-8 am-list-main">
-            <h3 class="am-list-item-hd">
-                <a href="###" class="">
-                    ${content.title}
-                </a>
-            </h3>
-        </div>
-        <div class="am-u-sm-4 am-list-thumb">
-            <a href="###" class="">
-            <img src="${content.thumbnail[0]}" alt="${content.title}" />
-        </a>
-        </div>
-    </div></li>`
-
-                    };
-                    $(sl.contentDom).append(markup)
+                    fillData(data)
+                    $(sl.contentDom).append(fillData(data))
                     sl.unLock()
                 },
                 error: function(xhr, type) {
@@ -67,12 +61,11 @@ $('[t_href]').click(function() {
         pullRefresh: function(sl) {
             $.ajax({
                 type: 'GET',
-                url: `http://rap.taobao.org/mockjsdata/14522/getgamelist?page=1`,
+                url: `/api/content/list/1`,
                 dataType: 'json',
                 success: function(data) {
-                    $(sl.contentDom).html(data)
-
-                    // 处理完业务逻辑后必须要调用refreshComplete
+                    $(sl.contentDom).html(fillData(data))
+                        // 处理完业务逻辑后必须要调用refreshComplete
                     sl.refreshComplete()
                 }
             })
