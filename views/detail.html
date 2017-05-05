@@ -2,44 +2,41 @@
 <html class="no-js">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>Amaze UI Examples</title>
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="Cache-Control" content="no-siteapp" />
-	<link rel="stylesheet" href="/static/css/amazeui.min.css">
-	<link rel="stylesheet" href="/static/css/app.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Amaze UI Examples</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="/static/css/amazeui.min.css">
+    <link rel="stylesheet" href="/static/css/app.css">
 </head>
 
 <body>
-	<div class="am-g">
-		<div class="myArticle">
-			<div class="myArticleHeadImg">
-				<div class="myArticGoBack"><img class="am-header-icon-custom" src="data:image/svg+xml;charset=utf-8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 12 20&quot;&gt;&lt;path d=&quot;M10,0l2,2l-8,8l8,8l-2,2L0,10L10,0z&quot; fill=&quot;%23fff&quot;/&gt;&lt;/svg&gt;"
-					    alt="" /></div>
-				<img src="/static/img/a9.jpg">
-			</div>
-			<div class="myArticleName">
-				<%=content.author %>
-			</div>
-			<div class="myArticleTitle">
-				<%=content.title %>
-			</div>
-			<div class="myArticleTime">
-				24 JAN 2016
-			</div>
-		</div>
-		<article data-am-widget="paragraph" class="myArticleText am-paragraph am-paragraph-default" data-am-paragraph="{ tableScrollable: true, pureview: true }">
+    <div class="am-g">
+        <div class="myArticle">
+            <a class="back-btn am-icon-chevron-left " href="javascript:history.go(-1)"></a>
 
-			<%-content.content %>
-		</article>
+            <div class="myArticleTitle">
+                <%=content.title %>
+            </div>
+            <div class="myArticleName">
+                <%=content.author %>
+            </div>
+            <div class="myArticleTime">
+                24 JAN 2016
+            </div>
+        </div>
+        <article data-am-widget="paragraph" class="myArticleText am-paragraph am-paragraph-default" data-am-paragraph="{ tableScrollable: true, pureview: true }">
 
-	</div>
-	  <script src="/static/js/zepto.min.js"></script>
-	<script src="/static/js/app.js"></script>
+            <%-content.content %>
+        </article>
+
+    </div>
+    <script src="/static/js/zepto.min.js"></script>
+    <script src="/static/js/app.js"></script>
 </body>
 
 </html>

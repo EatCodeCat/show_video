@@ -2,7 +2,7 @@ var express = require('express');
 var apiRouter = express.Router();
 
 var userDao = require('../model/userModel');
-
+var contentDao = require('../model/contentModel')
 const crypto = require('crypto');
 
 const secret = 'abcdefg';
@@ -31,6 +31,7 @@ apiRouter.get('/user/noexist/:username', function(req, res) {
         }
     })
 })
+
 apiRouter.post('/user/login', function(req, res) {
 
     var param = req.body;
@@ -51,6 +52,11 @@ apiRouter.post('/user/login', function(req, res) {
             }
         }
     })
+})
+
+apiRouter.get('/user/outlogin', function() {
+    req.session.user = null;
+    res.json({ code: 0 })
 })
 
 apiRouter.post('/user/save', function(req, res) {
@@ -74,6 +80,18 @@ apiRouter.post('/user/save', function(req, res) {
         }
 
 
+    })
+})
+
+
+apiRouter.get('/content/list/:pageIndex', function(req, res) {
+    contentDao.list(req.param('pageIndex') || 0, 30).then(function(data, err) {
+
+        var list = [];
+        data.forEach(function(item) {
+            list.push({ _id: item._id, title: item.title, thumbnail: item.thumbnail })
+        });
+        res.json(list)
     })
 })
 

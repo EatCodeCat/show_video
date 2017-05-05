@@ -17,37 +17,38 @@
 <body>
     <div class="am-g">
         <!-- 头部 -->
-        <!--<%- include('components/Search.html'); %>-->
-        <!-- 栏目切换 -->
-        <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
+        <%- include('components/Search.html') %>
+            <!-- 栏目切换 -->
+            <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
 
-            <div class="am-tabs-bd">
-                <div class="myAppTabPanel am-tab-panel am-active">
-                    <%- include('components/Slider.html'); %>
-                        <!-- 新闻列表 -->
+                <div class="am-tabs-bd">
+                    <div class="myAppTabPanel am-tab-panel am-active">
                         <div data-am-widget="list_news" class="myAppNews am-list-news am-list-news-default">
 
                             <div class="am-list-news-bd">
                                 <ul class="am-list">
                                     <!--缩略图在标题右边-->
-                                    <% for(var i=0; i<list.length; i++) {%>
-                                        <li class="am-g am-list-item-desced">
-                                            <%- include('components/RightImgBlock.html', {content: list[i]}); %>
-                                        </li>
-                                        <% } %>
+                                    <li class="am-g am-list-item-desced">
+                                        <%- include('components/RightImgBlock.html') %>
+                                    </li>
+                                    <li class="am-g am-list-item-desced">
+                                        <%- include('components/ArcticleBlock.html') %>
+                                    </li>
+                                    <li class="am-g am-list-item-desced">
+                                        <%- include('components/ListImgBlock.html') %>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
+                    </div>
                 </div>
+                <%- include('components/BottomNav.html') %>
             </div>
-            <%- include('components/BottomNav.html'); %>
-        </div>
     </div>
 
-    <script src="/static/js/zepto.min.js"></script>
-    <script src="/static/js/jquery.esn.autobrowse.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/amazeui.min.js"></script>
     <script src="/static/js/app.js"></script>
-
 </body>
 
 </html>

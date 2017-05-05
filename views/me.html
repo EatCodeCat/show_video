@@ -31,7 +31,7 @@
 
                         <div class="login" id="login">
                             <a href="/login" style="color:#000">
-                                <img class="am-circle" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" width="50" height="50" />
+                                <img class="am-circle" src="/static/img/th.jpg" width="50" height="50" />
                                 <div>请登录</div>
                             </a>
 
@@ -91,7 +91,10 @@
             Cookies.remove('userName', {
                 path: ''
             });
-            location.reload();
+            $.get('/api/user/outlogin', function() {
+                location.reload();
+            })
+
         })
     </script>
 </body>
