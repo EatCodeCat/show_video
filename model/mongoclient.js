@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 
-var db = mongoose.connect('mongodb://localhost/mini_show_db');
+var db = mongoose.connect('mongodb://127.0.0.1/mini_show_db');
 
 
 module.exports = {

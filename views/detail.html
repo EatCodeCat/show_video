@@ -1,54 +1,45 @@
 <!doctype html>
 <html class="no-js">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Amaze UI Examples</title>
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp"/>
-  <link rel="stylesheet" href="/static/css/amazeui.min.css">
-  <link rel="stylesheet" href="/static/css/app.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Amaze UI Examples</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="stylesheet" href="/static/css/amazeui.min.css">
+	<link rel="stylesheet" href="/static/css/app.css">
 </head>
+
 <body>
-<div class="am-g">
+	<div class="am-g">
 		<div class="myArticle">
 			<div class="myArticleHeadImg">
-			    <div class="myArticGoBack"><img class="am-header-icon-custom" src="data:image/svg+xml;charset=utf-8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 12 20&quot;&gt;&lt;path d=&quot;M10,0l2,2l-8,8l8,8l-2,2L0,10L10,0z&quot; fill=&quot;%23fff&quot;/&gt;&lt;/svg&gt;" alt=""/></div>
-				<div class="myArticleIco"><img src="/static/img/userico.jpg" alt=""></div>
+				<div class="myArticGoBack"><img class="am-header-icon-custom" src="data:image/svg+xml;charset=utf-8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 12 20&quot;&gt;&lt;path d=&quot;M10,0l2,2l-8,8l8,8l-2,2L0,10L10,0z&quot; fill=&quot;%23fff&quot;/&gt;&lt;/svg&gt;"
+					    alt="" /></div>
 				<img src="/static/img/a9.jpg">
 			</div>
 			<div class="myArticleName">
-				SHANNON ROGERS
+				<%=content.author %>
 			</div>
 			<div class="myArticleTitle">
-				Prints, Poppies and Patterns: Touring the Marimekko Factory
+				<%=content.title %>
 			</div>
 			<div class="myArticleTime">
 				24 JAN 2016
 			</div>
 		</div>
-	  <article data-am-widget="paragraph" class="myArticleText am-paragraph am-paragraph-default" data-am-paragraph="{ tableScrollable: true, pureview: true }">
-	  
-      <p>On the occasion of the last Stockholm Furniture Fair which has just closed its doors in Sweden, Carl Hansen announced the launching of production of two "new" models by Hans J. Wegner. The CH22 lounge chair, which marked the beginning of their long standing collaboration between the designer and Carl Hansen in the fifties, as well as the dining chair CH26, which was never put into production until today. This is an earlier model that has a lot of stylistic similarity with th.</p>
-      <img src="/static/img/a1.jpg" />
-      <p>As usual with the creations of the famous Danish furniture manufacturer, the attention to details and balance of the construction is delightful.</p>
-      <p>The CH22 and CH26 will be available in oak, walnut or a combination of both with multiple finishes, starting from summer 2016.</p>
-  </article>
-	
-</div>
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="/static//static/js/jquery.min.js"></script>
-<!--<![endif]-->
-<!--[if lte IE 8 ]>
-<script src="/static/http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="/static/http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="/static/assets/js/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
-<script src="/static//static/js/amazeui.min.js"></script>
-<script src="/static//static/js/app.js"></script>
+		<article data-am-widget="paragraph" class="myArticleText am-paragraph am-paragraph-default" data-am-paragraph="{ tableScrollable: true, pureview: true }">
+
+			<%-content.content %>
+		</article>
+
+	</div>
+	  <script src="/static/js/zepto.min.js"></script>
+	<script src="/static/js/app.js"></script>
 </body>
+
 </html>

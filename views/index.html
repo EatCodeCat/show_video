@@ -30,10 +30,13 @@
                                 <div class="am-list-news-bd">
                                     <ul class="am-list">
                                         <!--缩略图在标题右边-->
-                                        <li class="am-g am-list-item-desced">
-                                            <%- include('components/RightImgBlock.html'); %>
-                                        </li>
-                                        <li class="am-g am-list-item-desced">
+                                        <% for(var i=0; i<list.length; i++) {%>
+                                            <li  class="am-g am-list-item-desced">
+                                                    <%- include('components/RightImgBlock.html', {content: list[i]}); %>
+                                                </li>
+                                            <% } %>
+                                                
+                                                <!--<li class="am-g am-list-item-desced">
                                             <%- include('components/ArcticleBlock.html'); %>
                                         </li>
                                         <li class="am-g am-list-item-desced">
@@ -46,7 +49,7 @@
                                                 <div class="video"><img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg" class="am-img-responsive" alt="" /></div>
                                                 <div class="tag"><span>出轨</span><span>婚内</span><span>赵四</span><span>东北F4</span></div>
                                             </div>
-                                        </li>
+                                        </li>-->
                                     </ul>
                                 </div>
                             </div>
