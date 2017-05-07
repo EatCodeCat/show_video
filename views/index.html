@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <meta name="referrer" content="never">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>视频、阅读</title>
     <meta name="renderer" content="webkit">
@@ -18,12 +19,18 @@
     <div class="am-g">
         <!-- 头部 -->
         <!--<%- include('components/Search.html'); %>-->
+        <div class="top-nav">
+            <ul>
+                <li>推荐</li>
+                <li>達蓋爾的旗幟 </li>
+                <li>新時代的我們</li>
+            </ul>
+        </div>
         <!-- 栏目切换 -->
         <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
 
             <div class="am-tabs-bd">
                 <div class="myAppTabPanel am-tab-panel am-active">
-                    <%- include('components/Slider.html'); %>
                         <!-- 新闻列表 -->
                         <div data-am-widget="list_news" class="myAppNews am-list-news am-list-news-default">
 
