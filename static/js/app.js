@@ -1,10 +1,8 @@
 $('.bottom-nav')
   .find('li[name="' + location.pathname + '"]')
   .addClass('am-active')
+$('.search-page').height($(window).height() - 90)
 
-$('[t_href]').click(function () {
-  location.href = $(this).attr('t_href')
-})
 ;(function ($) {
   'use strict'
 
@@ -12,6 +10,20 @@ $('[t_href]').click(function () {
     $('.bottom-nav li').removeClass('am-active')
     $(this).addClass('am-active')
   })
+
+   $('.sv-search-box input').focus(function(){
+      $('.search-page').show();
+      $('.search-page').addClass('am-animation-fad');
+      $("header .am-icon-chevron-left").show();
+      $('.sv-search-box').removeClass('w100');
+
+  });
+   $("header .am-icon-chevron-left").click(function(){
+    $('.search-page').hide().removeClass('w100');
+      $('.search-page').addClass('am-animation-fad');
+      $("header .am-icon-chevron-left").hide();
+      $('.sv-search-box').addClass('w100');
+});
 
   $('.lazyload').each(function () {
     var src = $(this).attr('data-src')

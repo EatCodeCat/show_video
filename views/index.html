@@ -18,17 +18,9 @@
 <body>
     <div class="am-g">
         <!-- 头部 -->
-        <!--<%- include('components/Search.html'); %>-->
-        <div class="top-nav">
-            <ul>
-                <li>推荐</li>
-                <li>達蓋爾的旗幟 </li>
-                <li>新時代的我們</li>
-            </ul>
-        </div>
+         <%- include('components/Search.html') %>
         <!-- 栏目切换 -->
         <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
-
             <div class="am-tabs-bd">
                 <div class="myAppTabPanel am-tab-panel am-active">
                         <!-- 新闻列表 -->
@@ -48,6 +40,33 @@
                 </div>
             </div>
             <%- include('components/BottomNav.html'); %>
+        </div>
+    </div>
+    <div class="search-page">
+        <div class="hositry">
+            <div class="search-opt">历史记录<i class="am-icon-trash"></i></div>
+            <div class=search-tag>
+ <div class="search-item"></div><div class="search-item"></div>
+           
+           <div class="search-item"></div>
+            <div class="search-item"></div>
+            <div class="search-item"></div>
+            </div>
+            
+
+             <div class="search-opt" >猜你想搜的<i class="am-icon-eye"></i></div>
+             <div class=search-tag>
+ <div class="search-item"></div><div class="search-item"></div>
+           
+           <div class="search-item"></div>
+            <div class="search-item"></div>
+            <div class="search-item"></div>
+            </div>
+            
+
+        </div>
+        <div class="recomment">
+
         </div>
     </div>
 

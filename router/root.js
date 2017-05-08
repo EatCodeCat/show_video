@@ -77,6 +77,9 @@ rootRouter.get('/video', function(req, res) {
 rootRouter.get('/arctile', function(req, res) {
     res.render('arctile.html')
 });
+rootRouter.get('/flag', function(req, res) {
+    res.render('flag.html')
+});
 
 rootRouter.get('/detail/:id', function(req, res) {
     var id = req.param('id')

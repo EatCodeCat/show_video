@@ -10,6 +10,7 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
+    "framework7": "^1.6.0",
     "mongodb": "^2.2.26",
     "mongoose": "^4.9.7",
     "mpromise": "^0.5.5",
