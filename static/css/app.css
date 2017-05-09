@@ -1,7 +1,10 @@
 /* Write your styles */
 
 html,
-body {}
+body {
+    margin: 0;
+    padding: 0;
+}
 
 ul,
 li,
@@ -177,22 +180,26 @@ i {
     margin-bottom: 46px;
 }
 
-.myArticle .myArticGoBack {
+.myArticGoBack {
     z-index: 99;
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    width: 26px;
+    height: 26px;
     color: #fff;
     line-height: 32px;
     text-indent: -1px;
-    background: rgba(0, 0, 0, .5);
-    top: 20px;
-    left: 20px;
-    position: absolute;
+    background: rgba(0, 0, 0, .7);
+    top: 8px;
+    left: 4px;
+    position: fixed
 }
 
-.myArticle .myArticGoBack img {
+.myArticGoBack img {
     height: 16px;
+    width: 16px;
+    text-align: center;
+    margin-left: 4px;
+    margin-bottom: 1px;
 }
 
 .myArticle .myArticleHeadImg img {
@@ -215,9 +222,8 @@ i {
 
 .myArticle .myArticleTitle {
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     color: #222;
-    width: 100%;
     padding: 20px;
     text-align: center;
 }
@@ -242,6 +248,10 @@ i {
     padding: 0 20px;
     font-size: 14px;
     padding-top: 20px;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .myArticleText p {
@@ -494,7 +504,6 @@ i {
     width: 91%;
     float: left;
 }
-}
 
 .sv-search-box i {
     color: #bbb;
@@ -506,11 +515,13 @@ i {
     border: 1px solid #666;
     border-radius: 3px;
     outline: none;
+    height: 27px;
+    font-size: 14px;
 }
 
 .sv-search-box input:focus {
     background-color: rgba(41, 44, 52);
-    color: rebeccapurple;
+    color: #666;
 }
 
 .bottom-nav {
@@ -700,6 +711,8 @@ input::-moz-placeholder {
     position: fixed;
     top: 10px;
     left: 10px;
+    width: 16px;
+    display: inline-block;
 }
 
 .video-item {
@@ -724,10 +737,12 @@ input::-moz-placeholder {
 .pet_video_info_tag i {
     margin-right: 5px;
 }
-.scrollload-bottom{
+
+.scrollload-bottom {
     margin-bottom: 50px;
 }
-.top-nav{
+
+.top-nav {
     position: fixed;
     top: 0px;
     box-shadow: 1px 1px 2px rgba(51, 51, 51, 0.5);
@@ -735,63 +750,84 @@ input::-moz-placeholder {
     width: 100%;
     background-color: #fff;
 }
-.top-nav ul{
+
+.top-nav ul {
     display: flex
-} 
-.top-nav ul li{
+}
+
+.top-nav ul li {
     flex: 1;
     height: 35px;
     line-height: 35px;
     text-align: center;
 }
-.top-nav ul li.active{
+
+.top-nav ul li.active {
     color: #0e90d2
 }
-header{
+
+.am-g header {
     position: fixed !important;
     top: 0px;
     width: 100%;
     z-index: 999;
+    height: 35px;
+    line-height: 35px;
 }
-.search-page{
+
+.am-g header .detail-title {
+    color: #fff;
+    font-size: 12px;
+    margin: 0;
+    float: left;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 35px;
+}
+
+.search-page {
     background-color: #fff;
     position: fixed;
-    top:49px;
+    top: 35px;
     z-index: 999;
     min-height: 500px;
     width: 100%;
     display: none;
-
-
 }
-.w100{
+
+.w100 {
     width: 100%
 }
-.search-opt{
 
+.search-opt {
     height: 40px;
     line-height: 40px;
     color: #999;
     text-indent: 1em;
-    width:100%;
-    clear:both
+    width: 100%;
+    clear: both
 }
+
 .search-opt i {
-    float:right;
+    float: right;
     margin-right: 1em;
 }
 
-.search-page .search-item{
+.search-page .search-item {
     width: 50%;
     float: left;
     box-sizing: border-box;
     border-top: 1px solid #ddd;
-     height: 40px;
-     text-indent: 1em;
+    height: 40px;
+    text-indent: 1em;
 }
-.search-page .search-tag .search-item:nth-child(odd){
-     border-right: 1px solid #ddd;
+
+.search-page .search-tag .search-item:nth-child(odd) {
+    border-right: 1px solid #ddd;
 }
-.search-page .search-tag .search-item:nth-last-child(1),.search-page .search-tag .search-item:nth-last-child(2){
-      border-bottom: 1px solid #ddd;
+
+.search-page .search-tag .search-item:nth-last-child(1),
+.search-page .search-tag .search-item:nth-last-child(2) {
+    border-bottom: 1px solid #ddd;
 }

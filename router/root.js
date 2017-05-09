@@ -3,6 +3,8 @@ var rootRouter = express.Router();
 var userDao = require('../model/userModel');
 var contentDao = require('../model/contentModel')
 
+
+//保持登录状态
 function getUserBySession(userName, req, cb) {
 
     if (!req.session.user) {
@@ -30,7 +32,17 @@ rootRouter.use(function(req, res, next) {
             next();
         })
     } else {
-        next();
+        var _id = req.cookies._id;
+        if (_id) {
+            next();
+        } else {
+            userDao.createVirtalUser().then(function(data) {
+                var expires = { expires: new Date(Date.now() + 3600 * 1000 * 60 * 60 * 24) }
+                res.cookie('_id', data._id.toString(), expires);
+                next();
+            })
+
+        }
     }
 })
 

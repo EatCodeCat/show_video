@@ -23,10 +23,25 @@
      checkUserName: function(name) {
          return Model.findOne({ userName: name });
      },
+     findById: function(id) {
+         return Model.findById(id);
+     },
      login: function(name, password) {
          return Model.findOne({ userName: name, password: password });
      },
      fetchUserByUserName: function(name) {
          return Model.findOne({ userName: name });
+     },
+     createVirtalUser: function() {
+         return Model.create({
+             'userName': '',
+             'nickname': '',
+             'sex': 0,
+             'password': '',
+             'telphone': '',
+             'email': '',
+             'userId': '',
+             avatar: ''
+         })
      }
  }
