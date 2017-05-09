@@ -18,40 +18,47 @@
 <body>
     <div class="am-g">
         <!-- 头部 -->
-        <%- include('components/Search.html') %>
-            <!-- 栏目切换 -->
-            <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
-                <div class="am-tabs-bd">
-                    <div class="myAppTabPanel am-tab-panel am-active">
-                        <div data-am-widget="list_news" class="myAppNews am-list-news am-list-news-default">
+        <header data-am-widget="header" class="myAppHead am-header am-header-default">
+            <h4 style="
+    color: #fff;
+    text-align: center;
+">达盖尔的旗帜</h4>
 
-                            <div class="am-list-news-bd">
-                                <ul class="am-list">
-                                    <li class="am-g am-list-item-desced">
-                                        <%- include('components/ListImgBlock.html') %>
-                                    </li>
-                                    <li class="am-g am-list-item-desced">
-                                        <%- include('components/ListImgBlock.html') %>
-                                    </li>
-                                    <li class="am-g am-list-item-desced">
-                                        <%- include('components/ListImgBlock.html') %>
-                                    </li>
-                                    <li class="am-g am-list-item-desced">
-                                        <%- include('components/ListImgBlock.html') %>
-                                    </li>
-                                    <li class="am-g am-list-item-desced">
-                                        <%- include('components/ListImgBlock.html') %>
-                                    </li>
-                                    <li class="am-g am-list-item-desced">
-                                        <%- include('components/ListImgBlock.html') %>
-                                    </li>
-                                </ul>
-                            </div>
+        </header>
+        <div style="height:49px"></div>
+        <!-- 栏目切换 -->
+        <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
+            <div class="am-tabs-bd" style="margin-bottom:45px">
+                <div class="myAppTabPanel am-tab-panel am-active">
+                    <div data-am-widget="list_news" class="myAppNews am-list-news am-list-news-default">
+
+                        <div class="am-list-news-bd">
+                            <ul class="am-list">
+                                <li class="am-g am-list-item-desced">
+                                    <%- include('components/ListImgBlock.html') %>
+                                </li>
+                                <li class="am-g am-list-item-desced">
+                                    <%- include('components/ListImgBlock.html') %>
+                                </li>
+                                <li class="am-g am-list-item-desced">
+                                    <%- include('components/ListImgBlock.html') %>
+                                </li>
+                                <li class="am-g am-list-item-desced">
+                                    <%- include('components/ListImgBlock.html') %>
+                                </li>
+                                <li class="am-g am-list-item-desced">
+                                    <%- include('components/ListImgBlock.html') %>
+                                </li>
+                                <li class="am-g am-list-item-desced">
+                                    <%- include('components/ListImgBlock.html') %>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <%- include('components/BottomNav.html') %>
             </div>
+            <%- include('components/BottomNav.html') %>
+        </div>
     </div>
 
     <script src="/static/js/jquery.min.js"></script>
