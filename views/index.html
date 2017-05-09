@@ -18,11 +18,11 @@
 <body>
     <div class="am-g">
         <!-- 头部 -->
-         <%- include('components/Search.html') %>
-        <!-- 栏目切换 -->
-        <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
-            <div class="am-tabs-bd">
-                <div class="myAppTabPanel am-tab-panel am-active">
+        <%- include('components/Search.html') %>
+            <!-- 栏目切换 -->
+            <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
+                <div class="am-tabs-bd">
+                    <div class="myAppTabPanel am-tab-panel am-active">
                         <!-- 新闻列表 -->
                         <div data-am-widget="list_news" class="myAppNews am-list-news am-list-news-default">
 
@@ -37,41 +37,41 @@
                                 </ul>
                             </div>
                         </div>
+                    </div>
                 </div>
+                <%- include('components/BottomNav.html'); %>
             </div>
-            <%- include('components/BottomNav.html'); %>
-        </div>
     </div>
     <div class="search-page">
         <div class="hositry">
             <div class="search-opt">历史记录<i class="am-icon-trash"></i></div>
-            <div class=search-tag>
- <div class="search-item"></div><div class="search-item"></div>
-           
-           <div class="search-item"></div>
-            <div class="search-item"></div>
-            <div class="search-item"></div>
+            <div id="history" class=search-tag>
+                <div class="search-item"></div>
+                <div class="search-item"></div>
+                <div class="search-item"></div>
+                <div class="search-item"></div>
+                <div class="search-item"></div>
             </div>
-            
 
-             <div class="search-opt" >猜你想搜的<i class="am-icon-eye"></i></div>
-             <div class=search-tag>
- <div class="search-item"></div><div class="search-item"></div>
-           
-           <div class="search-item"></div>
-            <div class="search-item"></div>
-            <div class="search-item"></div>
+
+            <div class="search-opt">猜你想搜的<i class="am-icon-eye"></i></div>
+            <div class=search-tag>
+                <div class="search-item"></div>
+                <div class="search-item"></div>
+                <div class="search-item"></div>
+                <div class="search-item"></div>
+                <div class="search-item"></div>
             </div>
-            
+
 
         </div>
         <div class="recomment">
-
         </div>
     </div>
 
     <script src="/static/js/zepto.min.js"></script>
     <script src="/static/js/jquery.esn.autobrowse.js"></script>
+    <script src="/static/js/common.js"></script>
     <script src="/static/js/app.js"></script>
 
 </body>

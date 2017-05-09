@@ -8,18 +8,28 @@
     <meta name="keywords" content="">
     <meta name="referrer" content="never">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title><%=content.title %></title>
+    <title>
+        <%=content.title %>
+    </title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="stylesheet" href="/static/css/amazeui.min.css">
     <link rel="stylesheet" href="/static/css/app.css">
 </head>
 
-<body>
-    <div class="am-g">
-        <div class="myArticle">
-            <a class="back-btn am-icon-chevron-left " href="javascript:history.go(-1)"></a>
+<body style="overflow-x:hidden">
+    
 
+    <div class="am-g">
+    <header data-am-widget="header" class="myAppHead am-header am-header-default">
+    <i onclick="history.go(-1)" class=" am-icon-chevron-left" style="color:#fff;float: left;
+    margin-right: 10px;"></i>
+    <span class=detail-title title=<%=content.title %>><%=content.title %></span>
+    // <i class=" am-icon-share-alt" style="color:#fff;float: right;margin-right:5px"></i>
+</header>
+<div style="height:49px"></div>
+        <div class="myArticle">
+       
             <div class="myArticleTitle">
                 <%=content.title %>
             </div>
@@ -30,14 +40,15 @@
                 24 JAN 2016
             </div>
         </div>
-        <article data-am-widget="paragraph" class="myArticleText am-paragraph am-paragraph-default" data-am-paragraph="{ tableScrollable: true, pureview: true }">
+        <article data-am-widget="paragraph" class="myArticleText am-paragraph am-paragraph-default">
 
             <%-content.content %>
         </article>
-
     </div>
     <script src="/static/js/zepto.min.js"></script>
-    <script src="/static/js/app.js"></script>
+    <script src="/static/js/common.js"></script>
+                        
 </body>
+
 
 </html>

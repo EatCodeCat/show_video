@@ -2,7 +2,8 @@ var express = require('express');
 var apiRouter = express.Router();
 
 var userDao = require('../model/userModel');
-var contentDao = require('../model/contentModel')
+var contentDao = require('../model/contentModel');
+var historyDao = require('../model/historyModel')
 const crypto = require('crypto');
 
 const secret = 'abcdefg';
@@ -43,8 +44,10 @@ apiRouter.post('/user/login', function(req, res) {
             console.error(err);
         } else {
             if (data) {
-                res.cookie('userName', data.userName, { expires: new Date(Date.now() + 30 * 1000 * 60 * 60 * 24) });
-                res.cookie('nickname', data.nickname, { expires: new Date(Date.now() + 30 * 1000 * 60 * 60 * 24) });
+                var expires = { expires: new Date(Date.now() + 3600 * 1000 * 60 * 60 * 24) }
+                res.cookie('userName', data.userName, expires);
+                res.cookie('nickname', data.nickname, expires);
+                res.cookie('_id', data._id, expires);
                 req.session.user = data;
                 res.json({ code: 0 })
             } else {
@@ -86,6 +89,17 @@ apiRouter.post('/user/save', function(req, res) {
 
 apiRouter.get('/content/list/:pageIndex', function(req, res) {
     contentDao.list(req.param('pageIndex') || 0, 30).then(function(data, err) {
+
+        var list = [];
+        data.forEach(function(item) {
+            list.push({ _id: item._id, title: item.title, thumbnail: item.thumbnail })
+        });
+        res.json(list)
+    })
+})
+
+apiRouter.get('/history/userid/:userId', function(req, res) {
+    historyDao.fetchHistoryByUserId(req.param('userId')).then(function(data, err) {
 
         var list = [];
         data.forEach(function(item) {
