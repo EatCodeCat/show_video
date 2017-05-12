@@ -1,13 +1,13 @@
 function enterSearch(e) {
     if (e.keyCode == 13 && e.target.value != '') {
-        if (localStorage['searchkeys']) {
-            var searchkeys = JSON.parse(localStorage['searchkeys']);
-
-            searchkeys.push(e.target.value);
-            localStorage['searchkeys'] = JSON.stringify(searchkeys);
-
+        var historyKeys = {};
+        if (localStorage['historyKeys']) {
+            historyKeys = JSON.parse(localStorage['historyKeys']);
+            historyKeys[key] = (new Date()).getTime();
+            localStorage['historyKeys'] = JSON.stringify(this.historyKeys);
         } else {
-            localStorage['searchkeys'] = JSON.stringify([e.target.value]);
+            historyKeys[key] = (new Date()).getTime();
+            localStorage['historyKeys'] = JSON.stringify(this.historyKeys);
         }
     }
 }
