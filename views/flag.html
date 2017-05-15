@@ -34,24 +34,12 @@
 
                         <div class="am-list-news-bd">
                             <ul class="am-list">
-                                <li class="am-g am-list-item-desced">
-                                    <%- include('components/ListImgBlock.html') %>
-                                </li>
-                                <li class="am-g am-list-item-desced">
-                                    <%- include('components/ListImgBlock.html') %>
-                                </li>
-                                <li class="am-g am-list-item-desced">
-                                    <%- include('components/ListImgBlock.html') %>
-                                </li>
-                                <li class="am-g am-list-item-desced">
-                                    <%- include('components/ListImgBlock.html') %>
-                                </li>
-                                <li class="am-g am-list-item-desced">
-                                    <%- include('components/ListImgBlock.html') %>
-                                </li>
-                                <li class="am-g am-list-item-desced">
-                                    <%- include('components/ListImgBlock.html') %>
-                                </li>
+
+                                <% for(var i=0; i<list.length; i++) {%>
+                                    <li class="am-g am-list-item-desced">
+                                        <%- include('components/ListImgBlock.html', {images:list[i]}) %>
+                                    </li>
+                                    <% } %>
                             </ul>
                         </div>
                     </div>
@@ -62,10 +50,10 @@
     </div>
 
 
-    <script src="/static/js/zepto.min.js"></script>
+    <script src="/static/js/jQuery.min.js"></script>
     <script src="/static/js/amazeui.min.js"></script>
+    <script src="/static/js/jquery.esn.autobrowse.js"></script>
     <script src="/static/js/common.js"></script>
-    <script src="/static/js/app.js"></script>
 </body>
 
 </html>

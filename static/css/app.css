@@ -654,7 +654,7 @@ i {
 }
 
 .login {
-    height: 160px;
+    height: 110px;
     line-height: 40px;
     padding: 0 1.5rem;
     border-bottom: 1px solid #ddd;
@@ -738,9 +738,6 @@ input::-moz-placeholder {
     margin-right: 5px;
 }
 
-.scrollload-bottom {
-    margin-bottom: 50px;
-}
 
 .top-nav {
     position: fixed;
@@ -830,4 +827,22 @@ input::-moz-placeholder {
 .search-page .search-tag .search-item:nth-last-child(1),
 .search-page .search-tag .search-item:nth-last-child(2) {
     border-bottom: 1px solid #ddd;
+}
+.myAppGallery li:nth-child(4) {
+     padding-right: 6px;
+}
+.myAppGallery li:nth-child(5) {
+    padding: 5px 3px;
+}
+.myAppGallery li:nth-child(6) {
+    padding-left: 6px;
+}
+.myAppGallery li:nth-child(7) {
+    padding-right: 6px;
+}
+.myAppGallery li:nth-child(8) {
+    padding: 5px 3px;
+}
+.myAppGallery li:nth-child(9) {
+    padding-left: 6px;
 }
