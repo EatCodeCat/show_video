@@ -85,24 +85,24 @@ rootRouter.get('/arctile', function (req, res) {
   res.render('arctile.html')
 })
 rootRouter.get('/flag', function (req, res) {
-  imageDao.list(0, 900).then(function (data, err) {
+  imageDao.list(0, 50).then(function (data, err) {
     var list = [];
     
     if(err) console.error(err);
-    var temp = [];
-    for(var i = 0; i <data.length; i++){
-        if(i % 9==0){
-            if(temp.length == 0)
-                temp = [[data[i]]]
-            else{
-                 temp.push([[data[i]]]) 
-            }
-        }
-        else{
-            temp[temp.length - 1].push(data[i]);
-        }
-    }
-    res.render('flag.html', {list:temp});
+    // var temp = [];
+    // for(var i = 0; i <data.length; i++){
+    //     if(i % 9==0){
+    //         if(temp.length == 0)
+    //             temp = [[data[i]]]
+    //         else{
+    //              temp.push([[data[i]]])
+    //         }
+    //     }
+    //     else{
+    //         temp[temp.length - 1].push(data[i]);
+    //     }
+    // }
+    res.render('flag.html', {list:data});
   })
 })
 

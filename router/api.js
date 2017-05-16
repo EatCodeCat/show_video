@@ -90,20 +90,8 @@ apiRouter.get('/content/list/:pageIndex', function (req, res) {
   })
 })
 apiRouter.get('/image/list/:pageIndex', function (req, res) {
-  imageDao.list(req.param('pageIndex') || 0, 30).then(function (data, err) {
-    var temp = []
-    for (var i = 0; i < data.length; i++) {
-      if (i % 9 == 0) {
-        if (temp.length == 0)
-          temp = [[data[i]]]
-        else {
-          temp.push([[data[i]]])
-        }
-      }else {
-        temp[temp.length - 1].push(data[i])
-      }
-    }
-    res.json(temp)
+  imageDao.list(req.param('pageIndex') || 0, 50).then(function (data, err) {
+    res.json(data)
   })
 })
 

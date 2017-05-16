@@ -2,58 +2,219 @@
 <html class="no-js">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="referrer" content="never">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>视频、阅读</title>
+    <title>达盖尔的旗帜</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="stylesheet" href="/static/css/amazeui.min.css">
     <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="/static/css/swiper-3.4.2.min.css">
 </head>
 
 <body>
     <div class="am-g">
-        <!-- 头部 -->
         <header data-am-widget="header" class="myAppHead am-header am-header-default">
             <h4 style="
     color: #fff;
-    text-align: center;
-">达盖尔的旗帜</h4>
-
+    text-align: center;"> 达盖尔的旗帜</h4>
         </header>
-        <div style="height:49px"></div>
-        <!-- 栏目切换 -->
-        <div data-am-widget="tabs" class="myAppTab am-tabs am-tabs-d2">
-            <div class="am-tabs-bd" style="margin-bottom:45px">
-                <div class="myAppTabPanel am-tab-panel am-active">
-                    <div data-am-widget="list_news" class="myAppNews am-list-news am-list-news-default">
-
-                        <div class="am-list-news-bd">
-                            <ul class="am-list">
-
-                                <% for(var i=0; i<list.length; i++) {%>
-                                    <li class="am-g am-list-item-desced">
-                                        <%- include('components/ListImgBlock.html', {images:list[i]}) %>
-                                    </li>
-                                    <% } %>
-                            </ul>
+        <div style="height:35px"></div>
+        <div class="myAppTab am-tabs am-tabs-d2">
+            <div class="am-tabs-bd">
+                <div class="upate-time">更新时间：<%=list[0].create_time.getFullYear() %>-<%=list[0].create_time.getMonth() + 1 %>-<%=list[0].create_time.getDate() %> 
+                <%=list[0].create_time.getHours() %>:<%=list[0].create_time.getMinutes() %>:<%=list[0].create_time.getSeconds() %></div>
+                <div class="img-list" id="waterfall_ul">
+                    <% for(var i=0; i<list.length; i++) {%>
+                        <div class="img-item">
+                            <img src="<%=list[i].thumbnail%>" data-rel="<%=list[i].mainPic%>" />
                         </div>
-                    </div>
+                        <% } %>
+
                 </div>
+
+            </div>
+            <div class="swiper">
+                <a class="back-btn am-icon-chevron-left " style="color:#fff;z-index:1000"></a>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <% for(var i=0; i<list.length; i++) {%>
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img src="<%=list[i].mainPic%>">
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div style="bottom:55px" class="swiper-pagination swiper-pagination-white"></div>
+                </div>
+
             </div>
             <%- include('components/BottomNav.html') %>
         </div>
-    </div>
+
+        <script src="/static/js/zepto.min.js"></script>
+        <script src="/static/js/zepto.touch.min.js"></script>
+        <script src="/static/js/common.js"></script>
+        <script src="/static/js/swiper-3.4.2.min.js"></script>
+        <script>
+            //获取滚动条当前的位置 
+            function getScrollTop() {
+                var scrollTop = 0;
+                if (document.documentElement && document.documentElement.scrollTop) {
+                    scrollTop = document.documentElement.scrollTop;
+                } else if (document.body) {
+                    scrollTop = document.body.scrollTop;
+                }
+                return scrollTop;
+            }
+
+            //获取当前可是范围的高度 
+            function getClientHeight() {
+                var clientHeight = 0;
+                if (document.body.clientHeight && document.documentElement.clientHeight) {
+                    clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+                } else {
+                    clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+                }
+                return clientHeight;
+            }
+
+            //获取文档完整的高度 
+            function getScrollHeight() {
+                return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+            }
+            var page = 2
+            window.onscroll = function () {
+                if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+                    $.getJSON('/api/image/list/' + page++, function (data) {
+                        data.forEach(function (item) {
+                            $('.img-list').append(
+                                `<div class="img-item">
+                                    <img src="${item.thumbnail}" data-rel="${item.mainPic}" />
+                                </div>`
+                            )
+                            $('.swiper-wrapper').append(
+                                `<div class="swiper-slide">
+                                    <div class="swiper-zoom-container">
+                                        <img src="${item.thumbnail}" data-rel="${item.mainPic}" />
+                                    </div>
+                                </div>`
+                            )
+                        })
+                        $('#waterfall_ul').waterfall();
+
+                    })
+                }
+            }
+            $('.swiper').tap(function (event) {
+                event.stopPropagation();
+                $(".swiper").hide();
+            });
+
+            $('.img-list').on('tap', '[data-rel]', function () {
+                $(".swiper").show();
+                var swiper = new Swiper('.swiper-container', {
+                    zoom: true,
+                    pagination: '.swiper-pagination',
+                    paginationType: 'fraction',
+                });
+                var i = $('[data-rel]').index(this)
+                swiper.slideTo(i, 0, false);
+            })
 
 
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/amazeui.min.js"></script>
-    <script src="/static/js/jquery.esn.autobrowse.js"></script>
-    <script src="/static/js/common.js"></script>
+            $(function () {
+                $('#waterfall_ul').waterfall();
+            });
+            // 瀑布流插件
+            // pannysp 2013.4.9
+            ;
+            (function ($) {
+                $.fn.waterfall = function (options) {
+                    var df = {
+                        item: '.img-item',
+                        margin: 0,
+                        addfooter: true
+                    };
+                    options = $.extend(df, options);
+                    return this.each(function () {
+                        var $box = $(this),
+                            pos = [],
+                            _box_width = $box.width(),
+                            $items = $box.find(options.item),
+                            _owidth = $items.eq(0).width() + options.margin,
+                            _oheight = $items.eq(0).height() + options.margin,
+                            _num = Math.floor(_box_width / _owidth);
+
+                        (function () {
+                            var i = 0;
+                            for (; i < _num; i++) {
+                                pos.push([i * _owidth, 0]);
+                            }
+                        })();
+
+                        $items.each(function () {
+                            var _this = $(this),
+                                _temp = 0,
+                                _height = _this.height() + options.margin;
+
+                            for (var j = 0; j < _num; j++) {
+                                if (pos[j][1] < pos[_temp][1]) {
+                                    //暂存top值最小那列的index
+                                    _temp = j;
+                                }
+                            }
+                            this.style.cssText = 'left:' + pos[_temp][0] + 'px; top:' + pos[
+                                _temp][
+                                1
+                            ] + 'px;';
+                            //插入后，更新下该列的top值
+                            pos[_temp][1] = pos[_temp][1] + _height;
+                        });
+
+                        // 计算top值最大的赋给外围div
+                        (function () {
+                            var i = 0,
+                                tops = [];
+                            for (; i < _num; i++) {
+                                tops.push(pos[i][1]);
+                            }
+                            tops.sort(function (a, b) {
+                                return a - b;
+                            });
+                            $box.height(tops[_num - 1]);
+
+                            //增加尾部填充div
+                            if (options.addfooter) {
+                                addfooter(tops[_num - 1]);
+                            }
+
+                        })();
+
+                        function addfooter(max) {
+                            var addfooter = document.createElement('div');
+                            addfooter.className = 'item additem';
+                            for (var i = 0; i < _num; i++) {
+                                if (max != pos[i][1]) {
+                                    var clone = addfooter.cloneNode(),
+                                        _height = max - pos[i][1] - options.margin;
+                                    clone.style.cssText = 'left:' + pos[i][0] + 'px; top:' + pos[i][1] +
+                                        'px; height:' + _height + 'px;';
+                                    $box[0].appendChild(clone);
+                                }
+                            }
+                        }
+
+                    });
+                }
+            })(Zepto);
+        </script>
 </body>
 
 </html>
